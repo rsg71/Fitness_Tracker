@@ -46,7 +46,6 @@ app.post("/api/workouts", function (req, res) {
 
     db.Workout.create({})
         .then(data => res.json(data))
-
         .catch(err => {
             console.log(err)
         })
@@ -72,13 +71,13 @@ app.put("/api/workouts/:id", ({ body, params }, res) => {
 
 
 
-//get  /api/workouts/range (last 7 days: limit 7)
-app.get("/api/workouts/range", function (req, res) {
+//get  /api/workouts/ get all workouts
+app.get("/api/workouts", function (req, res) {
     // console.log("the req.body is: ", req.body)
 
-    Workout.find({
+    db.Workout.find({
 
-    }).sort({ day: -1 }).limit(7)
+    })
         .then(data => res.json(data))
         .catch(err => {
             res.json(err)
@@ -87,6 +86,17 @@ app.get("/api/workouts/range", function (req, res) {
 })
 
 
+//get  /api/workouts/range (last 7 days: limit 7)
+app.get("/api/workouts/range", function (req, res) {
+    // console.log("the req.body is: ", req.body)
+
+    db.Workout.find({})
+        .then(data => res.json(data))
+        .catch(err => {
+            res.json(err)
+        })
+
+})
 
 // app.post("/api/workouts/range", function (req, res) {
 //     db.Workout.create({})
