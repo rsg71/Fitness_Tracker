@@ -101,13 +101,7 @@ app.get("/api/workouts/range", function (req, res) {
 
 })
 
-// app.post("/api/workouts/range", function (req, res) {
-//     db.Workout.create({})
-//         .then(data => res.json(data))
-//         .catch(err => {
-//             res.json(err)
-//         })
-// });
+
 
 
 // HTML Routes
